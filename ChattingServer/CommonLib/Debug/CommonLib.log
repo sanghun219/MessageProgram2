@@ -1,4 +1,6 @@
-﻿  MySocket.cpp
+﻿  DBManager.cpp
+  MySocket.cpp
+  Clock.cpp
   Logger.cpp
   UniConverter.cpp
   코드를 생성하고 있습니다...

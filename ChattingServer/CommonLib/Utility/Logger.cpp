@@ -40,3 +40,30 @@ void Logger::Log(const char* msg, LOG_TYPE type)
 		break;
 	}
 }
+
+void Logger::LogA(const WCHAR* msg, ...)
+{
+	std::lock_guard<std::recursive_mutex> lock(m_rm);
+	char copymsg[1024];
+	ZeroMemory(copymsg, sizeof(copymsg));
+	UniConverter::GetInstance()->ConvUnicodeToMulti(msg, copymsg);
+
+	char buf[1024];
+	va_list ap;
+	va_start(ap, copymsg);
+	vsprintf_s(buf, sizeof(buf), copymsg, ap);
+	va_end(ap);
+
+	puts(buf);
+}
+
+void Logger::LogA(const char* msg, ...)
+{
+	char buf[1024];
+	va_list ap;
+	va_start(ap, msg);
+	vsprintf_s(buf, sizeof(buf), msg, ap);
+	va_end(ap);
+
+	puts(buf);
+}

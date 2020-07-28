@@ -17,5 +17,10 @@ namespace ChattingClient
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MySocket ms = new MySocket();
+            ms.Init();
+        }
     }
 }
