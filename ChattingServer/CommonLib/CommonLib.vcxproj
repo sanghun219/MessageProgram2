@@ -165,7 +165,8 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="Network\DBManager.h" />
-    <ClInclude Include="Network\MySocket.h" />
+    <ClInclude Include="Network\TCPSocket.h" />
+    <ClInclude Include="Network\UDPSocket.h" />
     <ClInclude Include="Utility\Define.h" />
     <ClInclude Include="Utility\Logger.h" />
     <ClInclude Include="ServLibrary.h" />
@@ -176,7 +177,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Network\DBManager.cpp" />
-    <ClCompile Include="Network\MySocket.cpp" />
+    <ClCompile Include="Network\TCPSocket.cpp" />
+    <ClCompile Include="Network\UDPSocket.cpp" />
     <ClCompile Include="Utility\Clock.cpp" />
     <ClCompile Include="Utility\Logger.cpp" />
     <ClCompile Include="Utility\UniConverter.cpp" />

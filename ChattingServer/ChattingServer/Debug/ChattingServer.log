@@ -1,2 +1,2 @@
 ﻿  ChattingServer.cpp
-  ChattingServer.vcxproj -> C:\Users\User\Desktop\2020\2020-여름방학\ChatProgram\ChattingServer\Debug\ChattingServer.exe
+C:\Users\User\Desktop\2020\2020-여름방학\ChatProgram\ChattingServer\CommonLib\ServLibrary.h(5,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'mysql.h': No such file or directory

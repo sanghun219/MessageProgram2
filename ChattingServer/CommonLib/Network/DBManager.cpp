@@ -26,22 +26,22 @@ int DBManager::InitDBManager(std::string dbName)
 
 	if (mysql_init(&conn) == nullptr)
 	{
-		Logger::GetInstance()->Log("mysql_init error!");
+		Log("mysql_init error!");
 		return -1;
 	}
 	mysql_set_server_option(&conn, enum_mysql_set_option::MYSQL_OPTION_MULTI_STATEMENTS_ON);
 	connection = mysql_real_connect(&conn, host, user, pw, db, 3306, (const char*)nullptr, CLIENT_MULTI_STATEMENTS);
 	if (connection == nullptr)
 	{
-		Logger::GetInstance()->LogA("%d ERROR : %s, %d\n", mysql_errno(&conn), mysql_errno(&conn));
+		LogA("%d ERROR : %s, %d\n", mysql_errno(&conn), mysql_errno(&conn));
 		return -1;
 	}
 	else
 	{
-		Logger::GetInstance()->Log("DB Connected!");
+		Log("DB Connected!");
 		if (mysql_select_db(&conn, db))
 		{
-			Logger::GetInstance()->LogA("%d ERROR : %s, %d\n", mysql_errno(&conn), mysql_errno(&conn));
+			LogA("%d ERROR : %s, %d\n", mysql_errno(&conn), mysql_errno(&conn));
 
 			return -1;
 		}
@@ -80,7 +80,7 @@ int DBManager::ProcessQuery(const char* query, ...)
 
 	if (!retErr)
 	{
-		Logger::GetInstance()->Log("Check Query Err!");
+		Log("Check Query Err!");
 		//LOG("CheckQueryErr!");
 		return -1;
 	}
@@ -93,7 +93,7 @@ int DBManager::ProcessQuery(const char* query, ...)
 		}
 		else
 		{
-			Logger::GetInstance()->LogA("%s", mysql_error(&conn));
+			LogA("%s", mysql_error(&conn));
 
 			return -1;
 		}
@@ -120,7 +120,7 @@ MYSQL_RES* DBManager::GetsqlRes() const
 	}
 	else
 	{
-		Logger::GetInstance()->Log("초기화되지 않은 sql_result 사용!");
+		Log("초기화되지 않은 sql_result 사용!");
 		return nullptr;
 	}
 }
@@ -135,7 +135,7 @@ DBManager::~DBManager()
 		}
 		catch (...)
 		{
-			Logger::GetInstance()->Log("DB 연결 해제가 비정상적으로 동작했습니다.");
+			Log("DB 연결 해제가 비정상적으로 동작했습니다.");
 		}
 	}
 }

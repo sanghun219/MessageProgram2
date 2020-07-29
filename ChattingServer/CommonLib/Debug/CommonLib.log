@@ -1,7 +1,6 @@
-﻿  DBManager.cpp
-  MySocket.cpp
-  Clock.cpp
-  Logger.cpp
-  UniConverter.cpp
+﻿  TCPSocket.cpp
+  UDPSocket.cpp
   코드를 생성하고 있습니다...
+C:\Users\User\Desktop\2020\2020-여름방학\ChatProgram\ChattingServer\CommonLib\Network\UDPSocket.cpp(94): warning C4172: 지역 변수 또는 임시: socket의 주소를 반환하고 있습니다.
+C:\Users\User\Desktop\2020\2020-여름방학\ChatProgram\ChattingServer\CommonLib\Network\TCPSocket.cpp(77): warning C4172: 지역 변수 또는 임시: socket의 주소를 반환하고 있습니다.
   CommonLib.vcxproj -> C:\Users\User\Desktop\2020\2020-여름방학\ChatProgram\ChattingServer\Debug\CommonLib.lib

@@ -30,9 +30,6 @@
     <ClInclude Include="Utility\UniConverter.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Network\MySocket.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Network\SocketUtility.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -45,6 +42,12 @@
     <ClInclude Include="Network\DBManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Network\TCPSocket.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\UDPSocket.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utility\Logger.cpp">
@@ -53,13 +56,16 @@
     <ClCompile Include="Utility\UniConverter.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Network\MySocket.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Utility\Clock.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Network\DBManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\TCPSocket.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\UDPSocket.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

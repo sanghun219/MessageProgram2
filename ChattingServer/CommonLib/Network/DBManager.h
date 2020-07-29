@@ -27,5 +27,11 @@ private:
 public:
 	~DBManager();
 public:
-	DBManager() {}
+	DBManager()
+		: connection(nullptr),
+		conn(MYSQL()),
+		sql_result(nullptr),
+		sql_row(MYSQL_ROW()),
+		isconnect(false)
+	{}
 };

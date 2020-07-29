@@ -1,7 +1,8 @@
 #include "Logger.h"
 
-void Logger::Log(const WCHAR* msg, LOG_TYPE type)
+void Log(const WCHAR* msg, LOG_TYPE type)
 {
+	std::recursive_mutex m_rm;
 	std::lock_guard<std::recursive_mutex> lock(m_rm);
 	char copymsg[1024];
 	switch (type)
@@ -22,8 +23,9 @@ void Logger::Log(const WCHAR* msg, LOG_TYPE type)
 	}
 }
 
-void Logger::Log(const char* msg, LOG_TYPE type)
+void Log(const char* msg, LOG_TYPE type)
 {
+	std::recursive_mutex m_rm;
 	std::lock_guard<std::recursive_mutex> lock(m_rm);
 	switch (type)
 	{
@@ -34,15 +36,15 @@ void Logger::Log(const char* msg, LOG_TYPE type)
 	case LOG_TYPE::ERR:
 		std::cout << "ERROR Num : " << WSAGetLastError() << std::endl;
 		std::cout << msg << std::endl;
-		exit(0);
 		break;
 	default:
 		break;
 	}
 }
 
-void Logger::LogA(const WCHAR* msg, ...)
+void LogA(const WCHAR* msg, ...)
 {
+	std::recursive_mutex m_rm;
 	std::lock_guard<std::recursive_mutex> lock(m_rm);
 	char copymsg[1024];
 	ZeroMemory(copymsg, sizeof(copymsg));
@@ -57,8 +59,9 @@ void Logger::LogA(const WCHAR* msg, ...)
 	puts(buf);
 }
 
-void Logger::LogA(const char* msg, ...)
+void LogA(const char* msg, ...)
 {
+	std::recursive_mutex m_rm;
 	char buf[1024];
 	va_list ap;
 	va_start(ap, msg);
