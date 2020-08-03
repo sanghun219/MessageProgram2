@@ -12,6 +12,7 @@
 #include <list>
 #include <map>
 #include <unordered_map>
+#include <array>
 #include <thread>
 #include <mutex>
 #include <chrono>
@@ -24,3 +25,5 @@
 #include "Utility/UniConverter.h"
 #include "Utility/Logger.h"
 #include "Utility/Clock.h"
+
+#define SOCKET_BUF_SIZE 1500

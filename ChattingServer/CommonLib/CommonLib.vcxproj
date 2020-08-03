@@ -165,6 +165,8 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="Network\DBManager.h" />
+    <ClInclude Include="Network\Session.h" />
+    <ClInclude Include="Network\Stream.h" />
     <ClInclude Include="Network\TCPSocket.h" />
     <ClInclude Include="Network\UDPSocket.h" />
     <ClInclude Include="Utility\Define.h" />
@@ -177,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Network\DBManager.cpp" />
+    <ClCompile Include="Network\Stream.cpp" />
     <ClCompile Include="Network\TCPSocket.cpp" />
     <ClCompile Include="Network\UDPSocket.cpp" />
     <ClCompile Include="Utility\Clock.cpp" />

@@ -1,14 +1,34 @@
 #include "TCPSocket.h"
 
-TCPSocket::TCPSocket(SOCKET& socket, const NET_MODEL& netModel) :m_TCPSocket(socket)
+DWORD TCPSocket::m_SocketNumber = 0;
+TCPSocket::TCPSocket(SOCKET& _socket, const NET_MODEL& _netModel) :m_TCPSocket(_socket)
 {
-	SetNetModel(netModel);
+	SetNetModel(_netModel);
 	m_SocketNumber++;
+	m_TCPSocket = socket(AF_INET, SOCK_STREAM, 0);
+	if (m_TCPSocket == INVALID_SOCKET) {
+		Log("TCPSocket init error!", LOG_TYPE::ERR);
+	}
 }
 
 TCPSocket::~TCPSocket()
 {
 	closesocket(m_TCPSocket);
+}
+
+void TCPSocket::SetSockOpt(SOCKET_OPT opt)
+{
+	switch (opt)
+	{
+	case SOCKET_OPT::NONBLOCK:
+		SocketUtility::SetNonBlock(m_TCPSocket);
+		break;
+	case SOCKET_OPT::REUSEADDR:
+		SocketUtility::ReuseAddr(m_TCPSocket);
+		break;
+	default:
+		break;
+	}
 }
 
 BOOL TCPSocket::ListenNBindSocket()

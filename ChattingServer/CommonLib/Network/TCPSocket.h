@@ -5,6 +5,7 @@ class TCPSocket {
 public:
 	TCPSocket(SOCKET& socket, const NET_MODEL& netModel);
 	~TCPSocket();
+	void SetSockOpt(SOCKET_OPT opt);
 	// SELECT MODEL
 	BOOL ListenNBindSocket();
 	int Send(const char* buf);
@@ -40,5 +41,3 @@ private:
 	SOCKADDR_IN m_sockAddrin;
 	BOOL m_IsSelectModel;
 };
-
-DWORD TCPSocket::m_SocketNumber = 0;
